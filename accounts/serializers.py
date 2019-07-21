@@ -6,7 +6,7 @@ class UserProfileSerializer(serializers.ModelSerializer):
     
     class Meta:
         model = UserProfile
-        fields = ('phone',)
+        fields = ('phone_number',)
 
 
 class UserSerializer(serializers.HyperlinkedModelSerializer):
@@ -33,7 +33,7 @@ class UserSerializer(serializers.HyperlinkedModelSerializer):
         instance.email = validated_data.get('email', instance.email)
         instance.save()
 
-        profile.phone = profile_data.get('phone', profile.phone)
+        profile.phone_number = profile_data.get('phone_number', profile.phone_number)
         
         profile.save()
 
